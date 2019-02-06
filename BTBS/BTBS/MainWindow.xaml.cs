@@ -117,12 +117,14 @@ namespace BTBS
                         }
                     }
                     Port.Dispose();
-                }catch(IOException ex)
+                    MessageBox.Show("Files were send succesfully!");
+                }
+                catch(IOException ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
 
-                MessageBox.Show("Files were send succesfully!");
+                
             }
         }
 
