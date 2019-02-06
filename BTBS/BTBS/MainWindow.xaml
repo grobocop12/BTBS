@@ -1,0 +1,64 @@
+﻿<Window x:Class="BTBS.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BTBS"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="500" Width="850">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <StackPanel Orientation="Vertical" Margin="10" Background="LightGray">
+                <Label>File Path</Label>
+                <TextBox IsReadOnly="True" Name="FilePathBox"/>
+                <Button Name="BrowseFilesButton" Content="Browse Folders" Click="BrowseFilesButton_Click"/>
+
+                <Separator Height="20"></Separator>
+                <Label>Com Ports Settings</Label>
+                <Label>Select port:</Label>
+                <ComboBox Name="PortsList"></ComboBox>
+
+                <Label>Baud rate:</Label>
+                <TextBox Name="BaudRateBox" Text="9600"/>
+                
+                <Label>Parity bit:</Label>
+                <ComboBox Name="ParityBox">
+                    <ComboBoxItem Content="None"/>
+                    <ComboBoxItem Content="Odd"/>
+                    <ComboBoxItem Content="Even"/>
+                    <ComboBoxItem Content="Mark"/>
+                    <ComboBoxItem Content="Space"/>
+                </ComboBox>
+
+
+                <Label>Data bits (shouldn't be changed):</Label>
+                <TextBox Name="DataBitsBox" IsEnabled="False">8</TextBox>
+                <CheckBox Name="ChangeDataBits" IsChecked="False" Checked="ChangeDataBits_Checked" Unchecked="ChangeDataBits_Unchecked" Content="Change data bits"/>
+
+                <Label>Number of stop bits:</Label>
+                <ComboBox Name="StopBitBox">
+                    
+                    <ComboBoxItem Content="1"/>
+                    <ComboBoxItem Content="2"/>
+                    <ComboBoxItem Content="1.5"/>
+                </ComboBox>
+
+                <Separator Height="20"></Separator>
+                
+                <Button Name="SendButton" Click="SendButton_Click">Send</Button>
+            </StackPanel>
+        </ScrollViewer>
+
+        <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+            <StackPanel  Name="ImageStackPanel" Orientation="Vertical" Margin="10" CanVerticallyScroll="True" CanHorizontallyScroll="True">
+            
+            </StackPanel>
+        </ScrollViewer>
+
+    </Grid>
+</Window>
